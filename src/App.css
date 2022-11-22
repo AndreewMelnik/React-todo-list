@@ -1,12 +1,31 @@
-
-.app {
-  padding: 30px;
-  background-color: floralwhite;
+.App {
+  text-align: center;
 }
 
-.todo {
-  align-items: center;
+.App-header {
+  background-color: rgba(218, 64, 0, 0.74);
+  min-height: 100vh;
   display: flex;
-  font-size: 18px;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(6px + 2vmin);
+  color: rgba(9, 4, 4, 0.71);
 }
+
+.App-link {
+  color: #61dafb;
+}
+
+.card{
+  margin-bottom: 10px;
+}
+
+.file-input{
+  font-size: 10px;
+}
+
+.mb-1{
+  font-size: 15px;
+}
+
