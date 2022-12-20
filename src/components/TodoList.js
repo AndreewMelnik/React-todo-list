@@ -1,32 +1,52 @@
-import { useState } from "react";
-import { Button, Card, Form,} from 'react-bootstrap';
+import {useState} from "react";
+import {Button, Card, Form,} from 'react-bootstrap';
 
 
-function Todo({ todo, index, markTodo, removeTodo }) {
+function Todo({todo, index, markTodo, removeTodo}) {
     return (
         <Form className="todo">
-            <Form.Group className="mb-1" controlId="exampleForm.ControlInput1">
-                <Form.Control plaintext readOnly type="textarea" style={{ textDecoration: todo.isDone ? "line-through" : "" }} placeholder={todo.title} />
+            <Form.Group className="mb-1"
+                        controlId="exampleForm.ControlInput1">
+                <Form.Control plaintext
+                              readOnly
+                              className="input-card"
+                              type="textarea"
+                              style={{textDecoration: todo.isDone ? "line-through" : ""}}
+                              placeholder={todo.title}/>
             </Form.Group>
-            <Form.Group className="mb-1" controlId="exampleForm.ControlInput1">
-                <Form.Control plaintext readOnly type="textarea"  style={{ textDecoration: todo.isDone ? "line-through" : "" }} placeholder={todo.description}/>
+            <Form.Group className="mb-1"
+                        controlId="exampleForm.ControlInput1">
+                <Form.Control plaintext
+                              readOnly
+                              className="input-card"
+                              type="textarea"
+                              style={{textDecoration: todo.isDone ? "line-through" : ""}}
+                              placeholder={todo.description}/>
             </Form.Group>
-            <Form.Group className="mb-1" controlId="exampleForm.ControlInput1">
-                <Form.Control plaintext readOnly type="textarea" style={{ textDecoration: todo.isDone ? "line-through" : "" }} placeholder={todo.date}/>
+            <Form.Group className="mb-1"
+                        controlId="exampleForm.ControlInput1">
+                <Form.Control plaintext
+                              readOnly
+                              className="input-card"
+                              type="textarea"
+                              style={{textDecoration: todo.isDone ? "line-through" : ""}}
+                              placeholder={todo.date}/>
             </Form.Group>
-            <Form.Group controlId="formFileSm" className="file-input">
-                <Form.Control type="file" size="sm" />
+            <Form.Group controlId="formFileSm"
+                        className="file-input">
+                <Form.Control type="file"
+                              size="sm"/>
             </Form.Group>
-            <Button variant="outline-success" onClick={() => markTodo(index)}>✓</Button>{' '}
-            <Button variant="outline-danger" onClick={() => removeTodo(index)}>✕</Button>
+            <Button className="success-button"
+                    onClick={() => markTodo(index)}>✓</Button>{' '}
+            <Button className="cancel-button"
+                    onClick={() => removeTodo(index)}>✕</Button>
         </Form>
     );
 }
 
 
-
-
-function FormTodo({ addTodo }) {
+function FormTodo({addTodo}) {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [date, setDate] = useState("");
@@ -41,28 +61,29 @@ function FormTodo({ addTodo }) {
     };
 
     return (
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit}
+              className="pb-2">
             <Form.Group>
                 <Form.Label><b>Add Todo</b></Form.Label>
                 <Form.Control type="text"
                               className="input"
                               value={title}
                               onChange={e => setTitle(e.target.value)}
-                              placeholder="Title" />
+                              placeholder="Title"/>
                 <br/>
                 <Form.Control type="text"
                               className="input"
                               value={description}
                               onChange={e => setDescription(e.target.value)}
-                              placeholder="Description" />
+                              placeholder="Description"/>
                 <br/>
                 <Form.Control type="date"
                               className="input"
                               value={date}
                               onChange={e => setDate(e.target.value)}
-                              placeholder="Date" />
-                </Form.Group>
-            <Button variant="primary mb-3" type="submit">
+                              placeholder="Date"/>
+            </Form.Group>
+            <Button className="submit-button" type="submit">
                 Submit
             </Button>
         </Form>
@@ -70,15 +91,12 @@ function FormTodo({ addTodo }) {
 }
 
 
-
-
-
 function TodoList() {
     const [todos, setTodos] = useState([
         {
             title: "This is a sample todo",
             description: "Description",
-            date:"2022-11-22",
+            date: "Deadline date",
             isDone: false
         }
     ]);
@@ -101,9 +119,8 @@ function TodoList() {
 
     return (
         <div className="app">
-            <div className="container">
-                <h1 className="text-center mb-4">Todo List</h1>
-                <FormTodo addTodo={addTodo} />
+                <h1>TodoList React App</h1>
+                <FormTodo addTodo={addTodo}/>
                 <div>
                     {todos.map((todo, index) => (
                         <Card>
@@ -120,7 +137,6 @@ function TodoList() {
                     ))}
                 </div>
             </div>
-        </div>
     );
 }
 

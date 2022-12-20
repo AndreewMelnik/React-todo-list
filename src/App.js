@@ -1,15 +1,13 @@
 import './App.css';
 import TodoList from './components/TodoList';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {Container} from "react-bootstrap";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>TodoList React App</h1>
+    <Container>
         <TodoList/>
-      </header>
-    </div>
+    </Container>
   );
 }
 
